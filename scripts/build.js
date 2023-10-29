@@ -32,7 +32,7 @@ function build(sourceFolder, index) {
 
   // First build to proper folder
   const buildPath = getFolder("builds", chapterName, projectName);
-  cp.execSync(`BUILD_PATH=${buildPath} npm run build`, {
+  cp.execSync(`npm run build -- --outDir ${buildPath}`, {
     cwd: sourceFolder,
   });
 
