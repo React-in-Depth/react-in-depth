@@ -1,0 +1,30 @@
+.rating {
+  position: relative;
+  display: inline-flex;
+}
+
+.rating__stars {
+  gap: 2px;
+  align-items: center;
+  display: inline-flex;
+}
+
+.rating__stars--faded {
+  filter: grayscale(100%);
+  opacity: 0.3;
+}
+
+.rating__star {
+  width: 18px;
+  display: flex;
+  color: #f8d448;
+}
+
+.rating__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+}

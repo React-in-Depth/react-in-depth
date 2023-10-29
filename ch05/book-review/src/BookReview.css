@@ -1,0 +1,26 @@
+.review {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+}
+
+.review__title {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.review__byline {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0;
+}
+
+.review__body {
+  font-size: 18px;
+  color: #444;
+  margin: 15px 0 0;
+}

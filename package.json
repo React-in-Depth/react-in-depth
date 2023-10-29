@@ -1,0 +1,30 @@
+{
+  "name": "@jrr/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test -ws",
+    "create": "node ./scripts/create.js",
+    "build": "node ./scripts/build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "ch04/dark-mode",
+    "ch04/dark-mode",
+    "ch04/prettier",
+    "ch05/book-review",
+    "ch05/employee",
+    "ch05/employees",
+    "ch05/product-card",
+    "ch06/appointment",
+    "ch06/tag-form"
+  ],
+  "devDependencies": {
+    "fs-extra": "^11.1.1",
+    "prettier": "^3.0.3",
+    "yargs": "^17.7.2"
+  }
+}
