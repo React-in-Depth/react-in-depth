@@ -32,9 +32,11 @@ function build(sourceFolder, index) {
 
   // First build to proper folder
   const buildPath = getFolder("builds", chapterName, projectName);
-  cp.execSync(`npm run build -- --outDir ${buildPath}`, {
-    cwd: sourceFolder,
-  });
+  const basePath = `/builds/${chapterName}/${projectName}`;
+  cp.execSync(
+    `npm run build -- --outDir ${buildPath} --base ${basePath}`,
+    { cwd: sourceFolder }
+  );
 
   // The archive to proper zip
   const archivePath = getFolder(
