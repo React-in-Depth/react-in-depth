@@ -20,11 +20,19 @@
     "ch05/employees",
     "ch05/product-card",
     "ch06/appointment",
-    "ch06/tag-form"
+    "ch06/dark-mode",
+    "ch06/paginable",
+    "ch06/playlist",
+    "ch06/tag-form",
+    "ch06/use-reorderable",
+    "ch07/classnames",
+    "ch07/cssmodules",
+    "ch07/inline",
+    "ch07/styled",
+    "ch07/tailwind"
   ],
   "devDependencies": {
     "fs-extra": "^11.1.1",
-    "prettier": "^3.0.3",
     "yargs": "^17.7.2"
   }
 }
