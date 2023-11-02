@@ -94,7 +94,7 @@ const redirects = builds.reduce((o, { repo, chapter }) => {
   return o;
 }, initialRedirect);
 const redirectContent = Object.entries(redirects)
-  .map(([key, value]) => `/${key}  https://jobreadyreact${value}`)
+  .map(([key, value]) => `/${key}  https://jobreadyreact.com${value}`)
   .reverse()
   .join("\n");
 
