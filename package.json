@@ -29,7 +29,12 @@
     "ch07/cssmodules",
     "ch07/inline",
     "ch07/styled",
-    "ch07/tailwind"
+    "ch07/tailwind",
+    "ch08/context",
+    "ch08/reducer",
+    "ch08/redux",
+    "ch08/xstate",
+    "ch08/zustand"
   ],
   "devDependencies": {
     "fs-extra": "^11.1.1",
