@@ -34,7 +34,11 @@
     "ch08/reducer",
     "ch08/redux",
     "ch08/xstate",
-    "ch08/zustand"
+    "ch08/zustand",
+    "ch09/better-reactive",
+    "ch09/reactive",
+    "ch09/things",
+    "ch14/wordle"
   ],
   "devDependencies": {
     "fs-extra": "^11.1.1",
