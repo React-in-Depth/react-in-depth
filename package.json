@@ -38,6 +38,8 @@
     "ch09/better-reactive",
     "ch09/reactive",
     "ch09/things",
+    "ch13/base",
+    "ch13/complete",
     "ch14/wordle"
   ],
   "devDependencies": {
