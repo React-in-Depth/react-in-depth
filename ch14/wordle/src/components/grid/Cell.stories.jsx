@@ -6,19 +6,12 @@ export default {
   component: Cell,
 };
 
-const Template = (args) => <Cell {...args} />;
+export const Empty = { args: { char: " " } };
 
-export const Empty = Template.bind({});
-Empty.args = { char: " " };
+export const Unknown = { args: { char: "a" } };
 
-export const Unknown = Template.bind({});
-Unknown.args = { char: "a" };
+export const Unused = { args: { status: Status.Unused, char: "b" } };
 
-export const Unused = Template.bind({});
-Unused.args = { status: Status.Unused, char: "b" };
+export const Used = { args: { status: Status.Used, char: "c" } };
 
-export const Used = Template.bind({});
-Used.args = { status: Status.Used, char: "c" };
-
-export const Correct = Template.bind({});
-Correct.args = { status: Status.Correct, char: "d" };
+export const Correct = { args: { status: Status.Correct, char: "d" } };

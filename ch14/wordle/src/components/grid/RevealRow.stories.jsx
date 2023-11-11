@@ -7,52 +7,54 @@ export default {
   argTypes: { onEffect: { action: "reveal complete" } },
 };
 
-const Template = (args) => <RevealRow {...args} />;
-
-export const AllWrong = Template.bind({});
-AllWrong.args = {
-  word: "trace",
-  statuses: [
-    Status.Unused,
-    Status.Unused,
-    Status.Unused,
-    Status.Unused,
-    Status.Unused,
-  ],
+export const AllWrong = {
+  args: {
+    word: "trace",
+    statuses: [
+      Status.Unused,
+      Status.Unused,
+      Status.Unused,
+      Status.Unused,
+      Status.Unused,
+    ],
+  },
 };
 
-export const MixedResult = Template.bind({});
-MixedResult.args = {
-  word: "trace",
-  statuses: [
-    Status.Correct,
-    Status.Unused,
-    Status.Used,
-    Status.Unused,
-    Status.Used,
-  ],
+export const MixedResult = {
+  args: {
+    word: "trace",
+    statuses: [
+      Status.Correct,
+      Status.Unused,
+      Status.Used,
+      Status.Unused,
+      Status.Used,
+    ],
+  },
 };
 
-export const MultiLetter = Template.bind({});
-MultiLetter.args = {
-  word: "melee",
-  statuses: [
-    Status.Used,
-    Status.Used,
-    Status.Unused,
-    Status.Correct,
-    Status.Unused,
-  ],
+export const MultiLetter = {
+  args: {
+    word: "melee",
+    statuses: [
+      Status.Used,
+      Status.Used,
+      Status.Unused,
+      Status.Correct,
+      Status.Unused,
+    ],
+  },
 };
 
-export const CorrectWord = Template.bind({});
-CorrectWord.args = {
-  word: "trace",
-  statuses: [
-    Status.Correct,
-    Status.Correct,
-    Status.Correct,
-    Status.Correct,
-    Status.Correct,
-  ],
+export const CorrectWord = {
+  args: {
+    word: "trace",
+    statuses: [
+      Status.Correct,
+      Status.Correct,
+      Status.Correct,
+      Status.Correct,
+      Status.Correct,
+    ],
+  },
 };

@@ -131,7 +131,7 @@ export const gameMachine = createMachine<
       }),
       finishRound: assign((ctx) => {
         ctx.grid = ctx.grid
-          .filter((e): e is RevealingGridWord => true)
+          .filter((e): e is RevealingGridWord => "statuses" in e)
           .map(({ word, statuses }) => {
             ctx.keyboard = updateKeyboard(ctx.keyboard, word, statuses);
             return { word, type: RowType.Regular, statuses };

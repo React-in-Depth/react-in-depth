@@ -7,16 +7,15 @@ export default {
   argTypes: { onEffect: { action: "winning complete" } },
 };
 
-const Template = (args) => <WinRow {...args} />;
-
-export const CorrectWord = Template.bind({});
-CorrectWord.args = {
-  word: "trace",
-  statuses: [
-    Status.Correct,
-    Status.Correct,
-    Status.Correct,
-    Status.Correct,
-    Status.Correct,
-  ],
+export const CorrectWord = {
+  args: {
+    word: "trace",
+    statuses: [
+      Status.Correct,
+      Status.Correct,
+      Status.Correct,
+      Status.Correct,
+      Status.Correct,
+    ],
+  },
 };

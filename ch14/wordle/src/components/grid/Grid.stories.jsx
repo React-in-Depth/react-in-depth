@@ -7,8 +7,6 @@ export default {
   argTypes: { onEffect: { action: "effect complete" } },
 };
 
-const Template = (args) => <Grid {...args} />;
-
 const WORDS = {
   PartialInput: {
     word: "par",
@@ -109,43 +107,36 @@ const WORDS = {
   },
 };
 
-export const Empty = Template.bind({});
-Empty.args = {};
+export const Empty = {};
 
-export const Partial = Template.bind({});
-Partial.args = { words: [WORDS.PartialInput] };
+export const Partial = { args: { words: [WORDS.PartialInput] } };
 
-export const Input = Template.bind({});
-Input.args = {
-  words: [WORDS.FullInput],
+export const Input = { args: { words: [WORDS.FullInput] } };
+
+export const Further = {
+  args: { words: [WORDS.FullInput3, WORDS.Guess2, WORDS.Guess1] },
 };
 
-export const Further = Template.bind({});
-Further.args = {
-  words: [WORDS.FullInput3, WORDS.Guess2, WORDS.Guess1],
+export const WithReveal = {
+  args: { words: [WORDS.Reveal3, WORDS.Guess2, WORDS.Guess1] },
 };
 
-export const WithReveal = Template.bind({});
-WithReveal.args = {
-  words: [WORDS.Reveal3, WORDS.Guess2, WORDS.Guess1],
+export const WithError = {
+  args: { words: [WORDS.Error3, WORDS.Guess2, WORDS.Guess1] },
 };
 
-export const WithError = Template.bind({});
-WithError.args = {
-  words: [WORDS.Error3, WORDS.Guess2, WORDS.Guess1],
+export const Completed = {
+  args: {
+    words: [WORDS.Correct, WORDS.Guess3, WORDS.Guess2, WORDS.Guess1],
+  },
 };
 
-export const Completed = Template.bind({});
-Completed.args = {
-  words: [WORDS.Correct, WORDS.Guess3, WORDS.Guess2, WORDS.Guess1],
+export const Winning = {
+  args: {
+    words: [WORDS.Winning, WORDS.Guess3, WORDS.Guess2, WORDS.Guess1],
+  },
 };
 
-export const Winning = Template.bind({});
-Winning.args = {
-  words: [WORDS.Winning, WORDS.Guess3, WORDS.Guess2, WORDS.Guess1],
-};
-
-export const Initial = Template.bind({});
-Initial.args = {
-  words: [WORDS.Reveal3, WORDS.Reveal2, WORDS.Reveal1],
+export const Initial = {
+  args: { words: [WORDS.Reveal3, WORDS.Reveal2, WORDS.Reveal1] },
 };
