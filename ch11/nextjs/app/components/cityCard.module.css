@@ -1,0 +1,55 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.citycard {
+  border-radius: 0.7rem;
+  padding: 1rem;
+  color: white;
+  box-shadow: 0 0 10px rgba(0 0 0 / 0.4), 0 0 5px rgba(0 0 0 / 0.6);
+  width: 20em;
+  height: 11.25em;
+  background-size: cover, cover;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  text-decoration: underline;
+  height: 3em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  display: block;
+}
+
+.stats {
+  flex: 1 1 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.statbar {
+  border-left: 1px solid white;
+  width: 1px;
+}
+.stat {
+  display: flex;
+  align-items: center;
+}
+.statlarge {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
