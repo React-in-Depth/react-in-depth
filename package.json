@@ -13,7 +13,6 @@
   "license": "ISC",
   "workspaces": [
     "ch04/dark-mode",
-    "ch04/dark-mode",
     "ch04/prettier",
     "ch05/book-review",
     "ch05/employee",
@@ -47,6 +46,12 @@
     "ch10/menuitem-icon",
     "ch10/timer",
     "ch10/todo",
+    "ch11/nextjs",
+    "ch11/remix",
+    "ch12/backend-only",
+    "ch12/complete",
+    "ch12/frontend-only",
+    "ch12/skeleton",
     "ch13/base",
     "ch13/complete",
     "ch14/wordle"

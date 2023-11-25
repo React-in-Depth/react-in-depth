@@ -30,31 +30,46 @@ function build(sourceFolder, index) {
   const projectName = path.basename(sourceFolder);
   const chapterName = path.basename(path.dirname(sourceFolder));
 
-  // First build to proper folder
-  const buildPath = getFolder("builds", chapterName, projectName);
-  const basePath = `/builds/${chapterName}/${projectName}`;
-  cp.execSync(
-    `npm run build -- --outDir ${buildPath} --base ${basePath}`,
-    { cwd: sourceFolder }
-  );
+  let canBuild = false;
 
-  // The archive to proper zip
-  const archivePath = getFolder(
-    "zips",
-    chapterName,
-    `${projectName}.zip`
-  );
-  cp.execSync(`git archive -o ${archivePath} HEAD`, {
-    cwd: sourceFolder,
-  });
+  // First use build:preview script (if exists) to build to proper folder
+  try {
+    const buildPath = getFolder("builds", chapterName, projectName);
+    const basePath = `/builds/${chapterName}/${projectName}`;
+    cp.execSync(
+      `npm run build:preview -- --outDir ${buildPath} --base ${basePath}`,
+      { cwd: sourceFolder }
+    );
+    canBuild = true;
+  } catch {
+    // Ignore errors
+  }
 
-  console.log("Build and published", projectName, progress);
+  // Then archive to proper zip
+  let canArchive = false;
+  try {
+    const archivePath = getFolder(
+      "zips",
+      chapterName,
+      `${projectName}.zip`
+    );
+    cp.execSync(`git archive -o ${archivePath} HEAD`, {
+      cwd: sourceFolder,
+    });
+    canArchive = true;
+  } catch {
+    // Ignore errors
+  }
+
+  console.log("Published", chapterName, projectName, progress);
 
   return {
     repo: projectName,
     chapter: chapterName,
-    build: `/builds/${chapterName}/${projectName}/`,
-    content: `/zips/${chapterName}/${projectName}.zip`,
+    build: canBuild ? `/builds/${chapterName}/${projectName}/` : "",
+    content: canArchive
+      ? `/zips/${chapterName}/${projectName}.zip`
+      : "",
   };
 }
 
