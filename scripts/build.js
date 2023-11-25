@@ -37,7 +37,7 @@ function build(sourceFolder, index) {
     const buildPath = getFolder("builds", chapterName, projectName);
     const basePath = `/builds/${chapterName}/${projectName}`;
     cp.execSync(
-      `npm run build:preview -- --outDir ${buildPath} --base ${basePath}`,
+      `npm run build:preview -- --outDir ${buildPath} --base ${basePath} 2>&1`,
       { cwd: sourceFolder }
     );
     canBuild = true;
@@ -53,7 +53,7 @@ function build(sourceFolder, index) {
       chapterName,
       `${projectName}.zip`
     );
-    cp.execSync(`git archive -o ${archivePath} HEAD`, {
+    cp.execSync(`git archive -o ${archivePath} HEAD 2>&1`, {
       cwd: sourceFolder,
     });
     canArchive = true;
