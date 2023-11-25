@@ -1,0 +1,53 @@
+.nav {
+  background-color: white;
+  border-radius: 0.5em;
+  padding: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0.25em;
+  margin: 0;
+}
+
+.navListItem {
+  margin: 0;
+  padding: 0;
+}
+
+.navButton {
+  background: transparent;
+  border: 0;
+  display: block;
+  font-size: 90%;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    color: var(--color-palatinate);
+  }
+}
+
+.navLink,
+.navLinkCurrent {
+  display: block;
+  font-size: 90%;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.navLinkCurrent {
+  color: white;
+  background-color: var(--color-palatinate);
+}
+
+.navLink:hover {
+  color: var(--color-palatinate);
+}

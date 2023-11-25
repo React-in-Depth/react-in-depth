@@ -12,6 +12,7 @@
 # next.js
 /.next/
 /out/
+/prisma/data.db
 
 # production
 /build

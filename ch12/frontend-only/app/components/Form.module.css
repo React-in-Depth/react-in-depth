@@ -1,0 +1,99 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.title {
+  margin: 0.5em 0;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25em;
+  border: 1px solid gray;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+.labelSpan {
+  font-size: 70%;
+}
+
+.input,
+.select {
+  border: 1px solid gray;
+  border-radius: 0.5em;
+  padding: 0.25em 0.5em;
+  flex: 0 0 60%;
+}
+
+.optionGroup {
+  display: flex;
+  gap: 0.25em;
+  flex-wrap: wrap;
+  & + & {
+    margin-top: 0.5em;
+  }
+}
+
+.optionName {
+  margin: 0;
+  opacity: 0.5;
+}
+
+.option:checked ~ .optionName {
+  opacity: 1;
+}
+
+.optionContent {
+  display: none;
+  width: 100%;
+  gap: 0.25em;
+  align-items: stretch;
+}
+.optionContent label {
+  flex-grow: 1;
+}
+
+.option:checked ~ .optionContent {
+  display: flex;
+}
+
+.select {
+  flex-grow: 1;
+  font-size: inherit;
+  .option {
+    font-size: inherit;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.submit {
+  text-decoration: none;
+  text-align: center;
+  font-size: inherit;
+  border: 0;
+  border-radius: 0.5em;
+  padding: 0.25em 0.5em;
+  flex: 1 1 50%;
+  color: white;
+  background-color: var(--color-melon);
+}
+
+.cancel {
+  text-decoration: none;
+  text-align: center;
+  background: white;
+  border: 1px solid;
+  border-radius: 0.5em;
+  padding: 0.25em 0.5em;
+  flex: 1 1 50%;
+  color: var(--color-melon);
+}

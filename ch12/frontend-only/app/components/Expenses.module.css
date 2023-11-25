@@ -1,0 +1,36 @@
+.row {
+  background: white;
+  border-radius: 0.25em;
+  padding: 0.125em 0.5em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 120%;
+}
+
+.tag {
+  color: black;
+  box-shadow: 0 0 1px white;
+  display: block;
+  line-height: 1;
+  font-size: 50%;
+  padding: 0.25em 0.5em;
+  border-radius: 1em;
+}
+
+.item {
+  flex-grow: 1;
+}
+
+.value {
+  text-align: right;
+  flex-basis: 30%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  align-items: stretch;
+}

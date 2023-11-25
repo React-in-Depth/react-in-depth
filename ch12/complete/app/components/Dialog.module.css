@@ -1,0 +1,16 @@
+.background {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0 0 0 / 0.5);
+}
+
+.dialog {
+  position: absolute;
+  inset: 1em 50%;
+  background-color: white;
+  padding: 1em;
+  border-radius: 1em;
+  --width: min(calc(100vw - 2em), 40em);
+  width: var(--width);
+  margin-left: calc(var(--width) / -2);
+}

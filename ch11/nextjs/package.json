@@ -1,30 +1,36 @@
 {
-  "name": "nextjs",
+  "name": "@jrr/ch11-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup": "npm run setup:env && npm run setup:prisma",
+    "setup:env": "shx cp .env.example .env.local",
+    "setup:prisma": "npm run setup:prisma:generate && npm run setup:prisma:migrate && npm run setup:prisma:seed",
+    "setup:prisma:generate": "dotenv -e .env.local -- prisma generate",
+    "setup:prisma:migrate": "dotenv -e .env.local -- prisma migrate deploy",
+    "setup:prisma:seed": "dotenv -e .env.local -- prisma db seed"
   },
   "dependencies": {
-    "@next/font": "^14.0.3",
     "@prisma/client": "^5.6.0",
     "cookies-next": "^4.1.0",
-    "dotenv": "^16.3.1",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
     "slugify": "^1.6.6"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "^3.1.0",
-    "prisma": "^5.6.0"
+    "prisma": "^5.6.0",
+    "shx": "^0.3.4"
   },
   "prisma": {
     "seed": "node prisma/seed.mjs"

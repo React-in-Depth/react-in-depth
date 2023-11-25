@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Country {
+  code String @id
+  name String
+
+  cities City[]
+}
+
+model City {
+  id String @id @default(cuid())
+
+  slug String
+  name String
+
+  lat Float
+  lng Float
+
+  country     Country @relation(fields: [countryCode], references: [code])
+  countryCode String
+
+  data CityData?
+
+  @@unique([countryCode, slug], name: "country_city")
+}
+
+model CityData {
+  id String @id @default(cuid())
+
+  conditionId          Int?
+  condition            String?
+  conditionDescription String?
+
+  temperature     Float?
+  windSpeed       Float?
+  cloudPercentage Float?
+
+  sunrise   Int?
+  sunset    Int?
+  gmtOffset Int?
+
+  city   City   @relation(fields: [cityId], references: [id])
+  cityId String @unique
+
+  lastUpdate Int?
+}
