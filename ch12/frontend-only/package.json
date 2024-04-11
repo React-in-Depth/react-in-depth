@@ -1,5 +1,5 @@
 {
-  "name": "@jrr/ch12-frontend-only",
+  "name": "@reactindepth/ch12-frontend-only",
   "private": true,
   "sideEffects": false,
   "scripts": {

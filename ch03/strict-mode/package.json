@@ -1,5 +1,5 @@
 {
-  "name": "@jrr/ch03-strict-mode",
+  "name": "@reactindepth/ch03-strict-mode",
   "private": true,
   "version": "0.0.0",
   "type": "module",

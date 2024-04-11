@@ -57,7 +57,7 @@ function cloneExample(from, chapter, name) {
   // Edit name inside package.json
   const packageJsonPath = path.join(targetFolder, "package.json");
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath));
-  packageJson.name = `@jrr/${chapter}-${name}`;
+  packageJson.name = `@reactindepth/${chapter}-${name}`;
   fs.writeFileSync(
     packageJsonPath,
     JSON.stringify(packageJson, null, 2)

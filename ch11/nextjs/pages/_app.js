@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
-        <title>rq19-nextjs from React Quickly, 2nd ed</title>
+        <title>nextjs from React in Depth</title>
       </Head>
       <Component {...pageProps} />
     </div>

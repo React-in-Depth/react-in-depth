@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { Form } from "@remix-run/react";
 
-import styles from "./menu.module.css";
+import styles from "./Menu.module.css";
 
 export function FormMenuItem({
   to,

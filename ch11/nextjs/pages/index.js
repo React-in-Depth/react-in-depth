@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
   const cities = await getFrontpageData();
   const defaultFormats = getDefaultFormats(context);
   const myCity = JSON.parse(
-    getCookie("nextjs-jrr-mycity", context) || "null"
+    getCookie("nextjs-mycity", context) || "null"
   );
   return { props: { cities, defaultFormats, myCity } };
 }

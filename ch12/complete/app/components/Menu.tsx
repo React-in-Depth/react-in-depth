@@ -2,7 +2,7 @@ import type { PropsWithChildren } from "react";
 import { FormMenuItem } from "./FormMenuItem";
 import { MenuItem } from "./MenuItem";
 
-import styles from "./menu.module.css";
+import styles from "./Menu.module.css";
 
 function Menu({ children }: PropsWithChildren) {
   return (

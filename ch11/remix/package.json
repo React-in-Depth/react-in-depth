@@ -1,5 +1,5 @@
 {
-  "name": "@jrr/ch11-remix",
+  "name": "@reactindepth/ch11-remix",
   "private": true,
   "sideEffects": false,
   "scripts": {
