@@ -1,9 +1,9 @@
 import { useQueryClient, useMutation } from "react-query";
 import * as API from "./api";
 
-export function useDoThing(query) {
+export function useDoThing(queryKey) {
   const queryClient = useQueryClient();
-  const onSuccess = () => queryClient.invalidateQueries(query);
+  const onSuccess = () => queryClient.invalidateQueries({ queryKey });
   const { mutate: doThing } = useMutation(API.doThing, { onSuccess });
   return doThing;
 }

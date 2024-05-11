@@ -4,8 +4,11 @@ import * as API from "./api";
 export function useRemoveThing(then) {
   const queryClient = useQueryClient();
   const onSuccess = () => {
-    queryClient.invalidateQueries("things");
-    queryClient.invalidateQueries("currentThing");
+    queryClient.invalidateQueries({ queryKey: ["things"] });
+    queryClient.invalidateQueries({
+      queryKey: ["currentThing"],
+      refetchActive: false,
+    });
     then();
   };
   const { mutate: removeThing } = useMutation(API.removeThing, {

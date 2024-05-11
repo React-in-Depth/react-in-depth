@@ -9,8 +9,8 @@ export function useThisThing(id) {
     queryKey: ["things"],
     queryFn: loadThings,
   });
-  const doThing = useDoThing("things");
-  const undoThing = useUndoThing("things");
+  const doThing = useDoThing(["things"]);
+  const undoThing = useUndoThing(["things"]);
   const seeThing = useCurrent((state) => state.seeThing);
   return {
     thing: data.find((t) => t.id === id),

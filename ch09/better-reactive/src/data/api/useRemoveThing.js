@@ -17,7 +17,10 @@ export function useRemoveThing(then) {
     onSuccess: then,
     onSettled: (id) => {
       queryClient.invalidateQueries({ queryKey: ["things"] });
-      queryClient.invalidateQueries({ queryKey: ["currentThing", id] });
+      queryClient.invalidateQueries({
+        queryKey: ["currentThing", id],
+        refetchActive: false,
+      });
     },
   });
   return removeThing;

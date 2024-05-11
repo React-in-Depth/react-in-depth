@@ -5,7 +5,6 @@ export function useUser() {
   const { data } = useQuery({
     queryKey: ["user"],
     queryFn: getUser,
-    retry: false,
   });
   return data;
 }
