@@ -5,7 +5,10 @@ import { useUndoThing } from "./api/useUndoThing";
 import { useCurrent } from "./useCurrent";
 
 export function useThisThing(id) {
-  const { data } = useQuery("things", loadThings);
+  const { data } = useQuery({
+    queryKey: ["things"],
+    queryFn: loadThings,
+  });
   const doThing = useDoThing("things");
   const undoThing = useUndoThing("things");
   const seeThing = useCurrent((state) => state.seeThing);

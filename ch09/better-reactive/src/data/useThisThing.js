@@ -6,9 +6,12 @@ import { useCurrent } from "./useCurrent";
 
 export function useThisThing(id) {
   const queryClient = useQueryClient();
-  const { data } = useQuery("things", loadThings);
+  const { data } = useQuery({
+    queryKey: ["things"],
+    queryFn: loadThings,
+  });
   const onSuccess = ({ name, done }) =>
-    queryClient.setQueryData("things", (oldThings) =>
+    queryClient.setQueryData(["things"], (oldThings) =>
       oldThings.map((oldThing) =>
         oldThing.id !== id ? oldThing : { id, name, count: done.length }
       )

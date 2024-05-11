@@ -13,7 +13,7 @@ export function useThatThing() {
   // Find what we already know about this thing
   const queryClient = useQueryClient();
   const initialData = useMemo(() => {
-    const things = queryClient.getQueryData("things");
+    const things = queryClient.getQueryData(["things"]);
     const { count, ...partialThing } = things.find((t) => t.id === id);
     return {
       ...partialThing,
@@ -22,11 +22,11 @@ export function useThatThing() {
     };
   }, [id, queryClient]);
 
-  const { data: thing } = useQuery(
-    ["currentThing", { id }],
-    () => loadThing(id),
-    { initialData }
-  );
+  const { data: thing } = useQuery({
+    queryKey: ["currentThing", { id }],
+    queryFn: () => loadThing(id),
+    initialData,
+  });
 
   // Handle do/undo with mutation updates
   const onSuccess = (newThing) =>

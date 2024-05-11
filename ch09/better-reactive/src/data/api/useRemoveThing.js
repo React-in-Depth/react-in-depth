@@ -5,8 +5,8 @@ export function useRemoveThing(then) {
   const queryClient = useQueryClient();
   const { mutate: removeThing } = useMutation(API.removeThing, {
     onMutate: async (id) => {
-      await queryClient.cancelQueries({ queryKey: "things" });
-      const oldValue = queryClient.getQueryData("things");
+      await queryClient.cancelQueries({ queryKey: ["things"] });
+      const oldValue = queryClient.getQueryData(["things"]);
       const listWithoutRemoved = oldValue.filter((t) => t.id !== id);
       queryClient.setQueryData(["things"], listWithoutRemoved);
       return { oldValue };
@@ -15,9 +15,9 @@ export function useRemoveThing(then) {
       queryClient.setQueryData(["things"], oldValue);
     },
     onSuccess: then,
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: "things" });
-      queryClient.invalidateQueries({ queryKey: "currentThing" });
+    onSettled: (id) => {
+      queryClient.invalidateQueries({ queryKey: ["things"] });
+      queryClient.invalidateQueries({ queryKey: ["currentThing", id] });
     },
   });
   return removeThing;

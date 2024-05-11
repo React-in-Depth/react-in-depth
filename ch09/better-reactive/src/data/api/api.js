@@ -24,7 +24,7 @@ const post = (url, data) =>
 const remove = (url) => wrappedFetch(url, { method: "DELETE" });
 
 // USER API
-const getUser = () => get(URLS.USER);
+const getUser = () => get(URLS.USER).catch(() => false);
 const login = (data) => post(URLS.SESSION, data);
 const signup = (data) => post(URLS.USER, data);
 const logout = () => remove(URLS.SESSION);

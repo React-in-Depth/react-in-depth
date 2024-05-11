@@ -13,9 +13,10 @@ export function useThatThing() {
   const undoThing = useUndoThing("currentThing");
   const removeThing = useRemoveThing(seeAllThings);
 
-  const { data: thing } = useQuery(["currentThing", { id }], () =>
-    loadThing(id)
-  );
+  const { data: thing } = useQuery({
+    queryKey: ["currentThing", { id }],
+    queryFn: () => loadThing(id),
+  });
 
   return {
     thing,

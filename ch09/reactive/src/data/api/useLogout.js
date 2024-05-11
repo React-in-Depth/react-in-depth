@@ -3,7 +3,7 @@ import * as API from "./api";
 
 export function useLogout() {
   const queryClient = useQueryClient();
-  const onSuccess = () => queryClient.invalidateQueries("user");
+  const onSuccess = () => queryClient.refetchQueries(["user"]);
   const { mutate: logout } = useMutation(API.logout, { onSuccess });
   return logout;
 }
