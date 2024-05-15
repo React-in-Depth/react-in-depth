@@ -65,7 +65,7 @@ export function Grid({ onUndo, done }) {
       {A100.map((index) => ({
         done: index < done.length,
         id: done[index] ? done[index].id : index,
-        time: done[index] && new Date(done[index].time),
+        time: done[index]?.time && new Date(done[index].time),
       })).map(({ done, id, time }) => (
         <Cell
           onClick={done ? () => onUndo(id) : null}

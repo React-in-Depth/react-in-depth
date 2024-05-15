@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { loadThing } from "./api/api";
 import { useCurrent } from "./useCurrent";
 import { useDoThing } from "./api/useDoThing";

@@ -1,4 +1,4 @@
-import { useQueryClient, useMutation } from "react-query";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import * as API from "./api";
 
 export function useRemoveThing(then) {
@@ -11,7 +11,8 @@ export function useRemoveThing(then) {
     });
     then();
   };
-  const { mutate: removeThing } = useMutation(API.removeThing, {
+  const { mutate: removeThing } = useMutation({
+    mutationFn: API.removeThing,
     onSuccess,
   });
   return removeThing;

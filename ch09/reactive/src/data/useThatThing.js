@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { loadThing } from "./api/api";
 import { useCurrent } from "./useCurrent";
 import { useDoThing } from "./api/useDoThing";
@@ -9,8 +9,8 @@ export function useThatThing() {
   const id = useCurrent((state) => state.currentId);
   const seeAllThings = useCurrent((state) => state.seeAllThings);
 
-  const doThing = useDoThing("currentThing");
-  const undoThing = useUndoThing("currentThing");
+  const doThing = useDoThing(["currentThing"]);
+  const undoThing = useUndoThing(["currentThing"]);
   const removeThing = useRemoveThing(seeAllThings);
 
   const { data: thing } = useQuery({

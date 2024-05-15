@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { loadThings } from "./api/api";
 import { useDoThing } from "./api/useDoThing";
 import { useUndoThing } from "./api/useUndoThing";

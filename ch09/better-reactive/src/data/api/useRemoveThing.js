@@ -1,9 +1,10 @@
-import { useQueryClient, useMutation } from "react-query";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import * as API from "./api";
 
 export function useRemoveThing(then) {
   const queryClient = useQueryClient();
-  const { mutate: removeThing } = useMutation(API.removeThing, {
+  const { mutate: removeThing } = useMutation({
+    mutationFn: API.removeThing,
     onMutate: async (id) => {
       await queryClient.cancelQueries({ queryKey: ["things"] });
       const oldValue = queryClient.getQueryData(["things"]);

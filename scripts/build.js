@@ -118,3 +118,23 @@ const redirectPath = path.normalize(
 );
 fs.rmSync(redirectPath);
 fs.writeFileSync(redirectPath, redirectContent + "\n");
+
+// Make git archive of all the chapter folders including gitignore, package.json, and package-lock.json
+const fileArguments = Object.keys(output).concat([
+  ".gitignore",
+  "package.json",
+  "package-lock.json",
+]);
+const chapterArchivePath = getFolder(
+  "zips",
+  "chapters",
+  "chapters.zip"
+);
+cp.execSync(
+  `git archive -o ${chapterArchivePath} HEAD ${fileArguments.join(
+    " "
+  )} 2>&1`,
+  {
+    cwd: path.join(__dirname, ".."),
+  }
+);

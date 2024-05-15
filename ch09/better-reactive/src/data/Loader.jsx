@@ -1,4 +1,4 @@
-import { useIsFetching } from "react-query";
+import { useIsFetching } from "@tanstack/react-query";
 import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`
