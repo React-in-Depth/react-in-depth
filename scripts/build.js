@@ -3,17 +3,18 @@ const fs = require("fs");
 const cp = require("child_process");
 
 function getFolder(publicSub, chapterName, targetName) {
-  const chapterPath = path.normalize(
-    path.join(
-      __dirname,
-      "..",
-      "..",
-      "jobreadyreact.com",
-      "public",
-      publicSub,
-      chapterName
-    )
-  );
+  const segments = [
+    __dirname,
+    "..",
+    "..",
+    "jobreadyreact.com",
+    "public",
+    publicSub,
+  ];
+  if (chapterName) {
+    segments.push(chapterName);
+  }
+  const chapterPath = path.normalize(path.join(...segments));
   if (!fs.existsSync(chapterPath)) {
     fs.mkdirSync(chapterPath);
   }
@@ -127,8 +128,8 @@ const fileArguments = Object.keys(output).concat([
 ]);
 const chapterArchivePath = getFolder(
   "zips",
-  "chapters",
-  "chapters.zip"
+  null,
+  "react-in-depth.zip"
 );
 cp.execSync(
   `git archive -o ${chapterArchivePath} HEAD ${fileArguments.join(
