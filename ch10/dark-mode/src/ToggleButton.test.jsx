@@ -6,12 +6,12 @@ import { vi } from "vitest";
 import { ToggleButton } from "./ToggleButton";
 import { DarkModeContext } from "./DarkModeContext";
 
-function setup(text) {
+function setup() {
   const toggleDarkMode = vi.fn();
   const value = { toggleDarkMode };
   render(
     <DarkModeContext.Provider value={value}>
-      <ToggleButton>{text}</ToggleButton>
+      <ToggleButton />
     </DarkModeContext.Provider>
   );
   return { button: screen.getByRole("button"), toggleDarkMode };
@@ -20,7 +20,7 @@ function setup(text) {
 describe("ToggleButton component", () => {
   test("should invoke the toggle on click", async () => {
     // ARRANGE
-    const { button, toggleDarkMode } = setup("Click me");
+    const { button, toggleDarkMode } = setup();
     // ACT
     const user = userEvent.setup();
     await user.click(button);
