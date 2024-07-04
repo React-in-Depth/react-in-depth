@@ -18,7 +18,6 @@ export function useThatThing() {
     doThing: () => doThatThing(id),
     seeAllThings,
     undoThing: (did) => undoThatThing(id, did),
-    undoLastThing: () =>
-      undoThatThing(id, thing.done[thing.done.length - 1].id),
+    undoLastThing: () => undoThatThing(id, "last"),
   };
 }
