@@ -1,7 +1,7 @@
-import { useUserProfile } from "./useUserProfile";
-import { UserDataForm } from "./UserDataForm";
-import { UserDetails } from "./UserDetails";
-import { UserPreferences } from "./UserPreferences";
+import UserDataForm from "./UserDataForm"
+import UserDetails from "./UserDetails"
+import UserPreferences from "./UserPreferences"
+import { useUserProfile } from "./useUserProfile"
 
 export function CompactUserProfile({ userId }) {
   const {
@@ -10,18 +10,16 @@ export function CompactUserProfile({ userId }) {
     userPreferences,
     toggleEditMode,
     updatePreferences,
-  } = useUserProfile(userId);
+    setUserData,
+  } = useUserProfile(userId)
 
-  if (!userData) return <div>Loading...</div>;
+  if (!userData) return <div>Loading</div>
 
   return (
     <div>
       <h1>User Profile</h1>
       {editMode ? (
-        <UserDataForm
-          userData={userData}
-          onSave={toggleEditMode} // Assuming onSave is the prop for handling save action
-        />
+        <UserDataForm userData={userData} onChange={setUserData} />
       ) : (
         <UserDetails userData={userData} />
       )}
@@ -33,5 +31,5 @@ export function CompactUserProfile({ userId }) {
         onPreferencesChange={updatePreferences}
       />
     </div>
-  );
+  )
 }

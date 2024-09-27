@@ -1,52 +1,52 @@
-import { useEffect, useState } from "react";
-import { useAPI } from "./useAPI";
+import { useAPI } from "./useApi"
+import { useEffect, useState } from "react"
 
 function useFetchUserData(userId) {
-  const [userData, setUserData] = useState(null);
-
-  const api = useAPI();
+  const [userData, setUserData] = useState(null)
+  const api = useAPI()
   useEffect(() => {
-    // API call to fetch user data
     api
       .fetchUser(userId)
       .then((response) => response.json())
-      .then((data) => setUserData(data));
-  }, [api, userId]);
-
-  return userData;
+      .then((data) => setUserData(data))
+      .catch(() =>
+        setUserData({
+          name: "Unknown",
+          email: "unknown@domain.invalid",
+        })
+      )
+  }, [api, userId])
+  return { userData, setUserData }
 }
 
 export function useUserProfile(userId) {
-  const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(false)
   const [userPreferences, setUserPreferences] = useState({
-    theme: "light",
-    notifications: true,
-  });
-  const userData = useFetchUserData(userId);
+    theme: "",
+    notifications: false,
+  })
+  const { userData, setUserData } = useFetchUserData(userId)
 
   useEffect(() => {
-    const storedPreferences = localStorage.getItem("userPreferences");
+    const storedPreferences = localStorage.getItem("userPreferences")
     if (storedPreferences) {
-      setUserPreferences(JSON.parse(storedPreferences));
+      setUserPreferences(JSON.parse(storedPreferences))
     }
-  }, []);
+  }, [])
 
-  useEffect(() => {
-    localStorage.setItem(
-      "userPreferences",
-      JSON.stringify(userPreferences)
-    );
-  }, [userPreferences]);
+  const toggleEditMode = () => setEditMode(!editMode)
 
-  const toggleEditMode = () => setEditMode(!editMode);
-  const updatePreferences = (newPreferences) =>
-    setUserPreferences(newPreferences);
+  const updatePreferences = (newPreferences) => {
+    setUserPreferences(newPreferences)
+    localStorage.setItem("userPreferences", JSON.stringify(newPreferences))
+  }
 
   return {
     userData,
+    setUserData,
     editMode,
     userPreferences,
     toggleEditMode,
     updatePreferences,
-  };
+  }
 }
